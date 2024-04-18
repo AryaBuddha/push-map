@@ -285,6 +285,107 @@ export const roomPaths = {
     l: 1125,
     t: 310,
   },
+  131: {
+    floor: "first",
+    l: 1482,
+    t: 50,
+  },
+  132: {
+    floor: "first",
+    l: 1505,
+    t: 135,
+  },
+  133: {
+    floor: "first",
+    l: 1514,
+    t: 223,
+  },
+  134: {
+    floor: "first",
+    l: 1505,
+    t: 300,
+  },
+  136: {
+    floor: "first",
+    l: 1505,
+    t: 382,
+  },
+  137: {
+    floor: "first",
+    l: 1505,
+    t: 465,
+  },
+  138: {
+    floor: "first",
+    l: 1505,
+    t: 548,
+  },
+  135: {
+    floor: "first",
+    l: 1335,
+    t: 450,
+  },
+  143: {
+    floor: "first",
+    l: 1302,
+    t: 608,
+  },
+  142: {
+    floor: "first",
+    l: 1365,
+    t: 608,
+  },
+  140: {
+    floor: "first",
+    l: 1453,
+    t: 620,
+  },
+  139: {
+    floor: "first",
+    l: 1525,
+    t: 615,
+  },
+  141: {
+    floor: "first",
+    l: 1381,
+    t: 650,
+  },
+
+  201: {
+    floor: "second",
+    l: 94,
+    t: 107,
+  },
+  208: {
+    floor: "second",
+    l: 222,
+    t: 128,
+  },
+  212: {
+    floor: "second",
+    l: 366,
+    t: 128,
+  },
+  216: {
+    floor: "second",
+    l: 510,
+    t: 128,
+  },
+  218: {
+    floor: "second",
+    l: 600,
+    t: 128,
+  },
+  220: {
+    floor: "second",
+    l: 683,
+    t: 128,
+  },
+  224: {
+    floor: "second",
+    l: 773,
+    t: 128,
+  },
 
   302: {
     floor: "third",
