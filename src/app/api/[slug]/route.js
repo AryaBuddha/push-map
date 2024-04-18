@@ -18,9 +18,10 @@ export async function GET(request, { params }) {
   } else {
     const floor = roomPaths[query.toUpperCase()].floor;
     const pathName = path.join(__dirname, `${floor.toLowerCase()}.png`);
-    mapPath = path.resolve(pathname);
+    mapPath = path.resolve(pathName);
   }
 
+  const pathName = path.join(__dirname, `pin.png`);
   const pinPath = path.resolve("./public/pin.png");
 
   const mapBuffer = fs.readFileSync(mapPath);
