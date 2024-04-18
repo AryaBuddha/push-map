@@ -12,14 +12,16 @@ export async function GET(request, { params }) {
   console.log(query);
 
   if (!query || query == "null") {
-    mapPath = path.resolve(`./${params.slug.toLowerCase()}.png`);
+    const pathName = path.join(__dirname, `${params.slug.toLowerCase()}.png`);
+    mapPath = path.resolve(pathName);
     console.log(mapPath);
   } else {
     const floor = roomPaths[query.toUpperCase()].floor;
-    mapPath = path.resolve(`./${floor.toUpperCase()}.png`);
+    const pathName = path.join(__dirname, `${floor.toLowerCase()}.png`);
+    mapPath = path.resolve(pathname);
   }
 
-  const pinPath = path.resolve("./pin.png");
+  const pinPath = path.resolve("./public/pin.png");
 
   const mapBuffer = fs.readFileSync(mapPath);
   const pinBuffer = fs.readFileSync(pinPath);
