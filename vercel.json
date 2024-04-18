@@ -1,0 +1,13 @@
+{
+  "functions": {
+    "api/[slug]/route.js": {
+      "includeFiles": [
+        "public/basement.png",
+        "public/first.png",
+        "public/second.png",
+        "public/third.png",
+        "public/ground.png"
+      ]
+    }
+  }
+}

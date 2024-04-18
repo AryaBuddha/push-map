@@ -1,60 +1,57 @@
 import sharp from "sharp";
-import fs from "fs";
+import fs from "fs/promises"; // Using the promise-based version of 'fs'
 import path from "path";
-
 import { roomPaths } from "../roomPaths";
 
 export async function GET(request, { params }) {
   const searchParams = request.nextUrl.searchParams;
-
   const query = searchParams.get("room");
-  let mapPath = null;
-  console.log(query);
+  let mapPath;
 
-  if (!query || query == "null") {
-    const pathName = path.join(__dirname, `${params.slug.toLowerCase()}.png`);
-    mapPath = path.resolve(pathName);
-    console.log(mapPath);
-  } else {
+  if (!query || query === "null") {
+    mapPath = path.join("public", `${params.slug.toLowerCase()}.png`);
+  } else if (roomPaths[query.toUpperCase()]) {
     const floor = roomPaths[query.toUpperCase()].floor;
-    const pathName = path.join(__dirname, `${floor.toLowerCase()}.png`);
-    mapPath = path.resolve(pathName);
+    mapPath = path.join("public", `${floor.toUpperCase()}.png`);
+  } else {
+    return new Response("Room not found", { status: 404 });
   }
 
-  const pathName = path.join(__dirname, `pin.png`);
-  const pinPath = path.resolve("./public/pin.png");
+  try {
+    const pinPath = path.join("public", "pin.png");
+    const [mapBuffer, pinBuffer] = await Promise.all([
+      fs.readFile(mapPath),
+      fs.readFile(pinPath),
+    ]);
 
-  const mapBuffer = fs.readFileSync(mapPath);
-  const pinBuffer = fs.readFileSync(pinPath);
+    let outputBuffer = mapBuffer;
 
-  if (!roomPaths[query] || !query) {
-    return new Response(mapBuffer, {
+    if (query && roomPaths[query.toUpperCase()]) {
+      const pinPosition = { left: roomPaths[query].l, top: roomPaths[query].t };
+      const pinSize = { width: 150, height: 150 };
+
+      const resizedPinBuffer = await sharp(pinBuffer)
+        .resize(pinSize.width, pinSize.height)
+        .toBuffer();
+
+      outputBuffer = await sharp(mapBuffer)
+        .composite([
+          {
+            input: resizedPinBuffer,
+            left: pinPosition.left,
+            top: pinPosition.top,
+          },
+        ])
+        .toBuffer();
+    }
+
+    return new Response(outputBuffer, {
       headers: {
         "Content-Type": "image/png",
       },
     });
+  } catch (err) {
+    console.error(err);
+    return new Response("Internal Server Error", { status: 500 });
   }
-
-  const pinPosition = { left: roomPaths[query].l, top: roomPaths[query].t };
-  const pinSize = { width: 150, height: 150 };
-
-  const resizedPinBuffer = await sharp(pinBuffer)
-    .resize(pinSize.width, pinSize.height)
-    .toBuffer();
-
-  const outputBuffer = await sharp(mapBuffer)
-    .composite([
-      {
-        input: resizedPinBuffer,
-        left: pinPosition.left,
-        top: pinPosition.top,
-      },
-    ])
-    .toBuffer();
-
-  return new Response(outputBuffer, {
-    headers: {
-      "Content-Type": "image/png",
-    },
-  });
 }
