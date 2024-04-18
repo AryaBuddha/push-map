@@ -6,9 +6,18 @@ import { roomPaths } from "../roomPaths";
 
 export async function GET(request, { params }) {
   const searchParams = request.nextUrl.searchParams;
-  const query = searchParams.get("room");
 
-  const mapPath = path.resolve(`./public/${params.slug.toLowerCase()}.png`);
+  const query = searchParams.get("room");
+  let mapPath = null;
+  console.log(query);
+
+  if (!query) {
+    mapPath = path.resolve(`./public/${params.slug.toLowerCase()}.png`);
+  } else {
+    const floor = roomPaths[query.toUpperCase()].floor;
+    mapPath = path.resolve(`./public/${floor.toUpperCase()}.png`);
+  }
+
   const pinPath = path.resolve("./public/pin.png");
 
   const mapBuffer = fs.readFileSync(mapPath);
