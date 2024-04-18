@@ -16,7 +16,7 @@ export async function GET(request, { params }) {
     console.log(mapPath);
   } else {
     const floor = roomPaths[query.toUpperCase()].floor;
-    mapPath = path.resolve(`./${floor.toUpperCase()}.png`);
+    mapPath = path.resolve(`./${floor.toLowerCase()}.png`);
   }
 
   const pinPath = path.resolve("./pin.png");
