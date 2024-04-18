@@ -1,6 +1,6 @@
 {
   "functions": {
-    "api/[slug]/route.js": {
+    "api/**/*.js": {
       "includeFiles": [
         "public/basement.png",
         "public/first.png",
