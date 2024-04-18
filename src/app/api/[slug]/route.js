@@ -13,6 +13,7 @@ export async function GET(request, { params }) {
 
   if (!query || query == "null") {
     mapPath = path.resolve(`./public/${params.slug.toLowerCase()}.png`);
+    console.log(mapPath);
   } else {
     const floor = roomPaths[query.toUpperCase()].floor;
     mapPath = path.resolve(`./public/${floor.toUpperCase()}.png`);
