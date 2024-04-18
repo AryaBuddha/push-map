@@ -3,8 +3,17 @@
 import Image from "next/image";
 import { useSearchParams } from "next/navigation";
 import { useRouter } from "next/navigation";
+import { Suspense } from "react";
 
 export default function Home() {
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <SearchPage />
+    </Suspense>
+  );
+}
+
+function SearchPage() {
   const searchParams = useSearchParams();
   const router = useRouter();
 
