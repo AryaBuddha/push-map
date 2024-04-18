@@ -11,7 +11,7 @@ export async function GET(request, { params }) {
   let mapPath = null;
   console.log(query);
 
-  if (!query) {
+  if (!query || query == "null") {
     mapPath = path.resolve(`./public/${params.slug.toLowerCase()}.png`);
   } else {
     const floor = roomPaths[query.toUpperCase()].floor;
