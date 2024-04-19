@@ -38,7 +38,15 @@ function SearchPage() {
             router.push(`/?room=${e.target[0].value}`);
           }}
         >
-          <input className="bg-white p-2 rounded-lg" placeholder="Room Code" />
+          <div className="flex gap-x-3">
+            <input
+              className="bg-white p-2 rounded-lg"
+              placeholder="Room Code"
+            />
+            <button className="bg-white hover:bg-slate-200 p-2 rounded-lg text-2xl">
+              {"->"}
+            </button>
+          </div>
         </form>
       </div>
       <div className="flex flex-row items-center gap-x-3 fixed bottom-10 gap-y-5">

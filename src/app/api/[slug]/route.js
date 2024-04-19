@@ -15,8 +15,12 @@ export async function GET(request, { params }) {
     mapPath = path.resolve(`./${params.slug.toLowerCase()}.png`);
     console.log(mapPath);
   } else {
-    const floor = roomPaths[query.toUpperCase()].floor;
-    mapPath = path.resolve(`./${floor.toLowerCase()}.png`);
+    if (!Object.keys(query.toUpperCase()).includes(query.toUpperCase())) {
+      mapPath = path.resolve(`./${params.slug.toLowerCase()}.png`);
+    } else {
+      const floor = roomPaths[query.toUpperCase()].floor;
+      mapPath = path.resolve(`./${floor.toLowerCase()}.png`);
+    }
   }
 
   const pinPath = path.resolve("./pin.png");
