@@ -9,14 +9,12 @@ export async function GET(request, { params }) {
 
   const query = searchParams.get("room");
   let mapPath = null;
-  console.log(query);
 
   if (!query || query == "null") {
     mapPath = path.resolve(`./${params.slug.toLowerCase()}.png`);
-    console.log(mapPath);
   } else {
-    if (!Object.keys(query.toUpperCase()).includes(query.toUpperCase())) {
-      mapPath = path.resolve(`./${params.slug.toLowerCase()}.png`);
+    if (!Object.keys(roomPaths).includes(query.toUpperCase())) {
+      mapPath = path.resolve(`./${roomPaths[query]}.png`);
     } else {
       const floor = roomPaths[query.toUpperCase()].floor;
       mapPath = path.resolve(`./${floor.toLowerCase()}.png`);

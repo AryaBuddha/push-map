@@ -1,4 +1,4 @@
-export const roomPaths = {
+const basementFloor = {
   B001: {
     floor: "basement",
     l: 120,
@@ -149,7 +149,197 @@ export const roomPaths = {
     l: 1330,
     t: 285,
   },
+};
 
+const groundFloor = {
+  "001": {
+    floor: "ground",
+    l: 55,
+    t: 270,
+  },
+  "004": {
+    floor: "ground",
+    l: 145,
+    t: 100,
+  },
+  LabCorp: {
+    floor: "ground",
+    l: 145,
+    t: 100,
+  },
+  "004": {
+    floor: "ground",
+    l: 145,
+    t: 100,
+  },
+  "008": {
+    floor: "ground",
+    l: 395,
+    t: 130,
+  },
+  "006": {
+    floor: "ground",
+    l: 225,
+    t: 200,
+  },
+  "014": {
+    floor: "ground",
+    l: 560,
+    t: 130,
+  },
+  "0014": {
+    floor: "ground",
+    l: 560,
+    t: 130,
+  },
+  "016": {
+    floor: "ground",
+    l: 640,
+    t: 130,
+  },
+  "020": {
+    floor: "ground",
+    l: 720,
+    t: 85,
+  },
+  "018": {
+    floor: "ground",
+    l: 720,
+    t: 140,
+  },
+  "022": {
+    floor: "ground",
+    l: 805,
+    t: 130,
+  },
+  "024": {
+    floor: "ground",
+    l: 880,
+    t: 130,
+  },
+  "026": {
+    floor: "ground",
+    l: 925,
+    t: 110,
+  },
+  "030": {
+    floor: "ground",
+    l: 1050,
+    t: 105,
+  },
+  "034": {
+    floor: "ground",
+    l: 1115,
+    t: 105,
+  },
+  "032": {
+    floor: "ground",
+    l: 1080,
+    t: 165,
+  },
+  "036": {
+    floor: "ground",
+    l: 1180,
+    t: 165,
+  },
+  "038": {
+    floor: "ground",
+    l: 1220,
+    t: 125,
+  },
+  "040": {
+    floor: "ground",
+    l: 1330,
+    t: 125,
+  },
+  "042": {
+    floor: "ground",
+    l: 1415,
+    t: 145,
+  },
+  "043": {
+    floor: "ground",
+    l: 1495,
+    t: 125,
+  },
+  "003": {
+    floor: "ground",
+    l: 130,
+    t: 325,
+  },
+  "005": {
+    floor: "ground",
+    l: 190,
+    t: 325,
+  },
+  "009": {
+    floor: "ground",
+    l: 350,
+    t: 280,
+  },
+  "011": {
+    floor: "ground",
+    l: 350,
+    t: 280,
+  },
+  "009": {
+    floor: "ground",
+    l: 415,
+    t: 310,
+  },
+  "013": {
+    floor: "ground",
+    l: 480,
+    t: 310,
+  },
+  "015": {
+    floor: "ground",
+    l: 570,
+    t: 290,
+  },
+  "023": {
+    floor: "ground",
+    l: 750,
+    t: 320,
+  },
+  AIS: {
+    floor: "ground",
+    l: 750,
+    t: 320,
+  },
+  "031": {
+    floor: "ground",
+    l: 1065,
+    t: 310,
+  },
+  "033": {
+    floor: "ground",
+    l: 1145,
+    t: 280,
+  },
+  "049": {
+    floor: "ground",
+    l: 1245,
+    t: 280,
+  },
+  ECA: {
+    floor: "ground",
+    l: 1245,
+    t: 280,
+  },
+  "060": {
+    floor: "ground",
+    l: 1285,
+    t: 610,
+  },
+  "054": {
+    floor: "ground",
+    l: 1415,
+    t: 520,
+  },
+};
+
+const firstFloor = {
   102: {
     floor: "first",
     l: 61,
@@ -350,7 +540,9 @@ export const roomPaths = {
     l: 1381,
     t: 650,
   },
+};
 
+const secondFloor = {
   201: {
     floor: "second",
     l: 94,
@@ -386,10 +578,315 @@ export const roomPaths = {
     l: 773,
     t: 128,
   },
+  228: {
+    floor: "second",
+    l: 860,
+    t: 113,
+  },
+  234: {
+    floor: "second",
+    l: 945,
+    t: 128,
+  },
+  236: {
+    floor: "second",
+    l: 1040,
+    t: 128,
+  },
+  238: {
+    floor: "second",
+    l: 1123,
+    t: 128,
+  },
+  240: {
+    floor: "second",
+    l: 1215,
+    t: 128,
+  },
+  242: {
+    floor: "second",
+    l: 1300,
+    t: 128,
+  },
+  244: {
+    floor: "second",
+    l: 1390,
+    t: 128,
+  },
+  246: {
+    floor: "second",
+    l: 1480,
+    t: 128,
+  },
+  "201F": {
+    floor: "second",
+    l: 100,
+    t: 110,
+  },
+  "201E": {
+    floor: "second",
+    l: 57,
+    t: 215,
+  },
+  "201C": {
+    floor: "second",
+    l: 100,
+    t: 350,
+  },
+  213: {
+    floor: "second",
+    l: 358,
+    t: 330,
+  },
+  215: {
+    floor: "second",
+    l: 425,
+    t: 330,
+  },
+  217: {
+    floor: "second",
+    l: 510,
+    t: 330,
+  },
+  219: {
+    floor: "second",
+    l: 600,
+    t: 330,
+  },
+  221: {
+    floor: "second",
+    l: 690,
+    t: 347,
+  },
+  223: {
+    floor: "second",
+    l: 731,
+    t: 281,
+  },
+  227: {
+    floor: "second",
+    l: 750,
+    t: 325,
+  },
+  229: {
+    floor: "second",
+    l: 815,
+    t: 375,
+  },
+  231: {
+    floor: "second",
+    l: 942,
+    t: 380,
+  },
+  233: {
+    floor: "second",
+    l: 963,
+    t: 340,
+  },
+  235: {
+    floor: "second",
+    l: 960,
+    t: 280,
+  },
+  237: {
+    floor: "second",
+    l: 1037,
+    t: 327,
+  },
+  239: {
+    floor: "second",
+    l: 1125,
+    t: 327,
+  },
+  241: {
+    floor: "second",
+    l: 1215,
+    t: 327,
+  },
+  243: {
+    floor: "second",
+    l: 1305,
+    t: 327,
+  },
+  245: {
+    floor: "second",
+    l: 1392,
+    t: 327,
+  },
+};
 
+const thirdFloor = {
   302: {
     floor: "third",
     l: 105,
     t: 140,
   },
+  304: {
+    floor: "third",
+    l: 185,
+    t: 140,
+  },
+  308: {
+    floor: "third",
+    l: 260,
+    t: 140,
+  },
+  310: {
+    floor: "third",
+    l: 445,
+    t: 140,
+  },
+  312: {
+    floor: "third",
+    l: 530,
+    t: 140,
+  },
+  314: {
+    floor: "third",
+    l: 610,
+    t: 140,
+  },
+  316: {
+    floor: "third",
+    l: 695,
+    t: 140,
+  },
+  320: {
+    floor: "third",
+    l: 788,
+    t: 140,
+  },
+  324: {
+    floor: "third",
+    l: 875,
+    t: 140,
+  },
+  328: {
+    floor: "third",
+    l: 963,
+    t: 140,
+  },
+  330: {
+    floor: "third",
+    l: 1050,
+    t: 140,
+  },
+  332: {
+    floor: "third",
+    l: 1130,
+    t: 140,
+  },
+  334: {
+    floor: "third",
+    l: 1210,
+    t: 140,
+  },
+  336: {
+    floor: "third",
+    l: 1300,
+    t: 140,
+  },
+  338: {
+    floor: "third",
+    l: 1385,
+    t: 140,
+  },
+  340: {
+    floor: "third",
+    l: 1470,
+    t: 140,
+  },
+  301: {
+    floor: "third",
+    l: 100,
+    t: 340,
+  },
+  303: {
+    floor: "third",
+    l: 185,
+    t: 340,
+  },
+  309: {
+    floor: "third",
+    l: 450,
+    t: 340,
+  },
+  311: {
+    floor: "third",
+    l: 530,
+    t: 340,
+  },
+  313: {
+    floor: "third",
+    l: 615,
+    t: 340,
+  },
+  315: {
+    floor: "third",
+    l: 700,
+    t: 340,
+  },
+  317: {
+    floor: "third",
+    l: 770,
+    t: 300,
+  },
+  321: {
+    floor: "third",
+    l: 770,
+    t: 340,
+  },
+  323: {
+    floor: "third",
+    l: 825,
+    t: 370,
+  },
+  325: {
+    floor: "third",
+    l: 955,
+    t: 370,
+  },
+  327: {
+    floor: "third",
+    l: 980,
+    t: 335,
+  },
+  329: {
+    floor: "third",
+    l: 980,
+    t: 300,
+  },
+  331: {
+    floor: "third",
+    l: 1045,
+    t: 335,
+  },
+  333: {
+    floor: "third",
+    l: 1130,
+    t: 325,
+  },
+  335: {
+    floor: "third",
+    l: 1215,
+    t: 335,
+  },
+  337: {
+    floor: "third",
+    l: 1300,
+    t: 335,
+  },
+  339: {
+    floor: "third",
+    l: 1385,
+    t: 335,
+  },
+};
+
+export const roomPaths = {
+  ...basementFloor,
+  ...groundFloor,
+  ...firstFloor,
+  ...secondFloor,
+  ...thirdFloor,
 };
