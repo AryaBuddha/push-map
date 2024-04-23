@@ -162,7 +162,7 @@ const groundFloor = {
     l: 145,
     t: 100,
   },
-  LabCorp: {
+  LABCORP: {
     floor: "ground",
     l: 145,
     t: 100,
@@ -218,6 +218,11 @@ const groundFloor = {
     t: 130,
   },
   "026": {
+    floor: "ground",
+    l: 925,
+    t: 110,
+  },
+  RADIOLOGY: {
     floor: "ground",
     l: 925,
     t: 110,
