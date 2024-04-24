@@ -11,17 +11,17 @@ export async function GET(request, { params }) {
   let mapPath = null;
 
   if (!query || query == "null") {
-    mapPath = path.resolve(`./${params.slug.toLowerCase()}.png`);
+    mapPath = path.resolve(`./assets/${params.slug.toLowerCase()}.png`);
   } else {
     if (!Object.keys(roomPaths).includes(query.toUpperCase())) {
-      mapPath = path.resolve(`./${roomPaths[query]}.png`);
+      mapPath = path.resolve(`./assets/first.png`);
     } else {
       const floor = roomPaths[query.toUpperCase()].floor;
-      mapPath = path.resolve(`./${floor.toLowerCase()}.png`);
+      mapPath = path.resolve(`./assets/${floor.toLowerCase()}.png`);
     }
   }
 
-  const pinPath = path.resolve("./pin.png");
+  const pinPath = path.resolve("./assets/pin.png");
 
   const mapBuffer = fs.readFileSync(mapPath);
   const pinBuffer = fs.readFileSync(pinPath);
