@@ -34,7 +34,10 @@ export async function GET(request, { params }) {
     });
   }
 
-  const pinPosition = { left: roomPaths[query].l, top: roomPaths[query].t };
+  const pinPosition = {
+    left: roomPaths[query].l,
+    top: roomPaths[query].t,
+  };
   const pinSize = { width: 150, height: 150 };
 
   const resizedPinBuffer = await sharp(pinBuffer)
